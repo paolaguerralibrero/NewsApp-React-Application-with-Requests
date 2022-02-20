@@ -1,13 +1,14 @@
 import React, {useEffect, useState,} from 'react'
 import NewsList from '../components/NewsList'
-import NewsItem from '../components/NewsItem'
+
 import NewsDetail from '../components/NewsDetail'
-import './NewsContainer.css';
+import NewsToRead from '../components/NewsToRead';
 
 const NewsContainer = () => {
 
     const [newsInfo, setNewsInfo] = useState([])
     const [selectedNews, setSelectedNews] = useState(null)
+    const [newsToRead, setNewsToRead] = useState([])
 
 
     const getNews = function (){
@@ -24,13 +25,21 @@ const NewsContainer = () => {
          setSelectedNews(news)
      }
 
+     const handleSetNewsToRead = (news) => {
+         const toRead = [...newsToRead, news]
+         setNewsToRead(toRead)
+     }
+
+     
+
 
     return(
         
         <>
        
        <NewsList newsInfo={newsInfo} handleSelectedNews= {handleSelectedNews}/>  
-        {selectedNews? <NewsDetail selectedNews = {selectedNews}/> : null}
+        {selectedNews? <NewsDetail selectedNews = {selectedNews} handleSetNewsToRead={handleSetNewsToRead}/> : null}
+        <NewsToRead news={newsToRead}/>
         
 
        

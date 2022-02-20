@@ -7,7 +7,7 @@ const NewsItem = ({news, index, handleSelectedNews}) => {
 }
 
   return (
-    <div>
+    <div id="news">
         <p onClick={handleClick}>{news.webTitle}</p>
     </div>
   )

@@ -8,10 +8,12 @@ const NewsList = ({newsInfo, handleSelectedNews}) => {
     })
 
     
+    
 return(
     <>
-    <p>News:</p>
+    <h2>Latest news:</h2>
     {newsElements}
+   
     
     </>
 )
