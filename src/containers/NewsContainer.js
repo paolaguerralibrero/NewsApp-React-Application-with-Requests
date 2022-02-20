@@ -1,10 +1,13 @@
 import React, {useEffect, useState,} from 'react'
 import NewsList from '../components/NewsList'
 import NewsItem from '../components/NewsItem'
+import NewsDetail from '../components/NewsDetail'
+import './NewsContainer.css';
 
 const NewsContainer = () => {
 
     const [newsInfo, setNewsInfo] = useState([])
+    const [selectedNews, setSelectedNews] = useState(null)
 
 
     const getNews = function (){
@@ -17,13 +20,21 @@ const NewsContainer = () => {
          getNews();
      }, [])
 
+     const handleSelectedNews = (news) => {
+         setSelectedNews(news)
+     }
+
 
     return(
-        <div>
-        <p>im the news container</p>
-        {newsInfo ?<NewsList newsInfo={newsInfo}/> : null}
+        
+        <>
+       
+       <NewsList newsInfo={newsInfo} handleSelectedNews= {handleSelectedNews}/>  
+        {selectedNews? <NewsDetail selectedNews = {selectedNews}/> : null}
+        
 
-        </div>
+       
+        </>
     )
 
 

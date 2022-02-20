@@ -1,16 +1,16 @@
 import NewsItem from "./NewsItem"
 
 
-const NewsList = ({newsInfo}) => {
+const NewsList = ({newsInfo, handleSelectedNews}) => {
 
     const newsElements = newsInfo.map((news, index) => {
-        return <NewsItem news={news} index={index} key={index}/>
+        return <NewsItem news={news} index={index} key={index} handleSelectedNews = {handleSelectedNews}/>
     })
 
     
 return(
     <>
-    <p>I am a news list</p>
+    <p>News:</p>
     {newsElements}
     
     </>
