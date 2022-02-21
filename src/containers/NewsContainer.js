@@ -36,13 +36,9 @@ const NewsContainer = () => {
     return(
         
         <>
-       
-       <NewsList newsInfo={newsInfo} handleSelectedNews= {handleSelectedNews}/>  
         {selectedNews? <NewsDetail selectedNews = {selectedNews} handleSetNewsToRead={handleSetNewsToRead}/> : null}
         <NewsToRead news={newsToRead}/>
-        
-
-       
+       <NewsList newsInfo={newsInfo} handleSelectedNews= {handleSelectedNews}/>  
         </>
     )
 
